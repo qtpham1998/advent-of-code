@@ -12,5 +12,17 @@ def read_input_file(func: Callable = None) -> np.ndarray:
             return map_list(lambda x: func(x.strip()), lines)
 
 
+def read_whole_file(func: Callable = None):
+    with open('./input.txt', 'r') as file:
+        data = file.read().strip()
+        if func is None:
+            return data
+        return func(data)
+
+
 def map_list(func: Callable, lst: Union[List, np.ndarray]) -> np.ndarray:
     return np.array(list(map(func, lst)), dtype=object)
+
+
+def int_list(lst: str, sep: str = None) -> np.ndarray:
+    return np.array(lst.split(sep)).astype(int)
