@@ -32,16 +32,12 @@ def get_segment_points(x1: int, y1: int, x2: int, y2: int) -> np.ndarray:
     return np.array(points, dtype=object)
 
 
-def mark_dangerous_area(diagram: defaultdict, x1: int, y1: int, x2: int, y2: int):
-    for x, y in get_segment_points(x1, y1, x2, y2):
-        diagram[x, y] += 1
-
-
-def mark_hv_lines(segments: np.ndarray) -> defaultdict:
+def mark_dangerous_area(segments: np.ndarray) -> defaultdict:
     diagram = defaultdict(lambda: 0)
     for x1, y1, x2, y2 in segments:
         # if x1 == x2 or y1 == y1  // Part 1
-        mark_dangerous_area(diagram, x1, y1, x2, y2)
+        for x, y in get_segment_points(x1, y1, x2, y2):
+            diagram[x, y] += 1
     return diagram
 
 
@@ -51,7 +47,7 @@ def get_intersection_points(diagram: defaultdict) -> int:
 
 def main():
     segments = get_data()
-    diagram = mark_hv_lines(segments)
+    diagram = mark_dangerous_area(segments)
     count = get_intersection_points(diagram)
     print("The number of points intersecting with intersections is {}.".format(count))
 
