@@ -5,8 +5,6 @@ import numpy as np
 import utils
 
 
-ROWS, COLS = 0, 0
-
 def pre_process_data(line: str) -> np.ndarray:
     return np.array(list(line))
 
