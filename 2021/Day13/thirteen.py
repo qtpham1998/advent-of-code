@@ -2,11 +2,11 @@ import numpy as np
 import utils
 
 
-def process_point(point: str) -> np.ndarray:
+def pre_process_point(point: str) -> np.ndarray:
     return np.array(point.split(','))
 
 
-def process_fold(fold: str) -> tuple:
+def pre_process_fold(fold: str) -> tuple:
     fold = fold.split('=')  # Splits into 'fold along [x|y]' and '[d+]'
     axis = fold[0][-1]
     line = int(fold[1])
@@ -23,8 +23,8 @@ def create_points_map(points: np.ndarray) -> np.ndarray:
 
 def pre_process_data(data: str) -> tuple:
     points, folds = data.split('\n\n')
-    points = utils.map_list(process_point, points.split('\n')).astype(int)
-    folds = utils.map_list(process_fold, folds.split('\n'))
+    points = utils.map_list(pre_process_point, points.split('\n')).astype(int)
+    folds = utils.map_list(pre_process_fold, folds.split('\n'))
     return create_points_map(points), folds
 
 
