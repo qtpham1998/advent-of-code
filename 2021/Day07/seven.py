@@ -3,7 +3,7 @@ import utils
 
 
 def get_data() -> np.ndarray:
-    return utils.int_list(utils.read_whole_file(), ',')
+    return utils.number_list(utils.read_whole_file(), ',')
 
 
 def calculate_constant_fuel_cons(crab_positions: np.ndarray, position: int) -> int:

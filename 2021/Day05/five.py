@@ -7,7 +7,7 @@ import utils
 
 def pre_process_data(data: str) -> np.ndarray:
     points = data.split(' -> ')
-    return utils.int_list(','.join(points), ',')
+    return utils.number_list(','.join(points), ',')
 
 
 def get_data() -> np.ndarray:

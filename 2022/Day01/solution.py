@@ -4,7 +4,7 @@ import utils
 
 
 def get_elf_total_calories(calories_list: str) -> int:
-    calories = utils.int_list(calories_list, '\n')
+    calories = utils.number_list(calories_list, '\n')
     return sum(calories)
 
 

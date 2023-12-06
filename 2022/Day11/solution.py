@@ -47,7 +47,7 @@ def construct_worry_lvl_func(line: str):
 
 def create_monkey(monkey: str):
     monkey = monkey.split('\n')
-    items = utils.int_list(monkey[1].split(': ')[-1], ', ')
+    items = utils.number_list(monkey[1].split(': ')[-1], ', ')
     worry_func = construct_worry_lvl_func(monkey[2])
     test_value = int(monkey[3].split(' ')[-1])
     monkey_true = int(monkey[4][-1])

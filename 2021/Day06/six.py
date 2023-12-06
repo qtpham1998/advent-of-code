@@ -6,7 +6,7 @@ import utils
 
 def pre_process_data(data) -> defaultdict:
     lanternfish = defaultdict(lambda: 0)
-    for f in utils.int_list(data, ','):
+    for f in utils.number_list(data, ','):
         lanternfish[f] += 1
     return lanternfish
 

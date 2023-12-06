@@ -57,4 +57,3 @@ def find_optimal_path_length(heightmap: np.ndarray) -> int:
 if __name__ == "__main__":
     h_map = utils.read_input_file(create_heightmap)
     optimal_path = find_optimal_path_length(h_map)
-    print("Part 1: The fewest steps required is {}".format(optimal_path))

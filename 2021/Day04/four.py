@@ -9,7 +9,7 @@ class Board:
         numbers = np.empty(shape=(0, 5))
         data = data.split('\n')
         for d in data:
-            row = utils.int_list(d)
+            row = utils.number_list(d)
             numbers = np.append(numbers, [row], axis=0)
         self.numbers = numbers
         self.total = numbers.sum()
@@ -31,7 +31,7 @@ def check_row(row: np.ndarray) -> bool:
 
 def pre_process_data(data: str) -> (np.ndarray, np.ndarray):
     data = data.split('\n\n')
-    draws = utils.int_list(data[0], ',')
+    draws = utils.number_list(data[0], ',')
     boards = utils.map_list(Board, data[1:])
     return draws, boards
 
