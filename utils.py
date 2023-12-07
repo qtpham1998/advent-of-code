@@ -13,7 +13,7 @@ def read_input_file(func: Callable = None, use_list=False) -> Union[list, np.nda
 
     Returns: List of input lines
     """
-    with open('./input.txt.txt', 'r') as file:
+    with open('./input.txt', 'r') as file:
         lines = file.readlines()
         if func is None:
             return numpy_map_list(lambda x: x.strip(), lines)
